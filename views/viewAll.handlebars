@@ -1,0 +1,101 @@
+<section class="mt-9 m-6 min-h-screen">
+  <!--Establishes grid-->
+  <section>
+    <!--Start of budget-->
+    {{#if budgetOption}}
+    <section>
+      <!--Start of budget-->
+      <a 
+        href="/dashboard"
+        class="bg-red-600 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        aria-current='page'
+      >Back</a>
+      <section
+        class='text-center bg-white rounded-md m-4 p-3'
+      >
+      <h1 class="text-red-600 text-3xl font-bold mb-1">Budget List</h1>
+      <div class='grid grid-cols-4 justify-between mx-3 border-b-2 border-red-500 mb-1'>
+        <div>
+          <p class="text-xl font-regular text-red-600 font-regular">Category</p>
+        </div>
+        <div>
+          <p class="text-xl font-regular text-red-600 font-regular">Budget</p>
+        </div>
+        <div>
+          <p class="text-xl font-regular text-red-600 font-regular">Remaining</p>
+        </div>
+        <div>
+          <p class="text-xl font-regular text-red-600 font-regular">View</p>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        {{#each budgetArr as |budget|}}
+        {{> viewAllBudget}}
+        {{/each}}
+      </div>
+      </section>
+
+    </section>
+    {{else}}
+      {{#if expenseOption}}
+      <section>
+      <!--Start of budget-->
+      <a 
+        href="/dashboard"
+        class="bg-red-600 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        aria-current='page'
+      >Back</a>
+      <section
+        class='text-center bg-white rounded-md m-4 p-3'
+      >
+      <h1 class="text-red-600 text-3xl font-bold mb-1">Expense List</h1>
+      <div class='grid grid-cols-3 place-content-evenly justify-between mx-3 text-lg border-b-2 mb-1 border-red-500'>
+        <div>
+          <p class="text-xl font-regular text-red-600 font-regular">Expense</p>
+        </div>
+        <div>
+          <p class="text-xl font-regular text-red-600 font-regular">Amount</p>
+        </div>
+        <div>
+          <p class="text-xl font-regular text-red-600 font-regular">Category</p>
+        </div>
+      </div>
+        <div class="flex flex-col">
+        {{#each expenseArr as |expense|}}
+        {{> viewAllExpense}}
+        {{/each}}
+      </div>
+      </section>
+    </section>
+    {{else}}
+    <!--Start of Income-->
+    <section>
+      <a 
+        href="/dashboard"
+        class="bg-red-600 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        aria-current='page'
+      >Back</a>
+      <section
+        class='text-center bg-white rounded-md m-4 p-3'
+      >
+        <h1 class="text-red-600 text-3xl font-bold mb-1">Income List</h1>
+        <div class='grid grid-cols-2 place-content-evenly justify-between mx-3 text-lg border-b-2 mb-1 border-red-500'>
+        <div>
+          <p class="text-xl font-regular text-red-600 font-regular">Source of Income</p>
+        </div>
+        <div>
+          <p class="text-xl font-regular text-red-600 font-regular">Amount</p>
+        </div>
+      </div>
+          <div class="flex flex-col">
+        {{#each incomeArr as |income|}}
+        {{> viewAllIncome}}
+        {{/each}}
+      </div>
+      </section>
+    </section>
+  </section>
+  {{/if}}
+  {{/if}}
+</section>
+<script src="/js/viewOne.js"></script>

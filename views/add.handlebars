@@ -1,0 +1,273 @@
+<!--Establishes grid-->
+<section class='mt-6 min-h-screen'>
+  <!--Start of budget-->
+  <section class="mt-9 m-6 min-h-screen">
+    <section>
+      {{#if budgetOption}}
+      <a 
+        href="/dashboard"
+        class="bg-red-600 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        aria-current='page'
+      >Back</a>
+      <section
+        class='text-center bg-white rounded-md m-4 p-3'
+      >
+        <h1 class="text-red-600 text-3xl font-bold">Create a Budget</h1>
+        <form class='form' id='budgetForm'>
+          <div class='grid grid-cols-2 gap-4 mt-3'>
+            <div class="form-group mb-6">
+              <h1 class="font-regular mb-1 text-xl">Budget Category</h1>
+              <input
+                type='text'
+                id='budgetName'
+                class='form-control name block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-red-600 focus:outline-none'
+                    placeholder="E.g., Entertainment">
+              <!-- Password field -->
+            </div>
+
+            <div class='form-group mb-6'>
+              <h1 class="font-regular text-xl mb-1">Amount</h1>
+              <input
+                type='text'
+                id='budgetAmount'
+                class='form-control amount block
+                      w-full
+                      px-3
+                      py-1.5
+                      text-base
+                      font-normal
+                      text-gray-700
+                      bg-white bg-clip-padding
+                      border border-solid border-gray-300
+                      rounded
+                      transition
+                      ease-in-out
+                      m-0
+                      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
+                      placeholder="E.g., 400">
+            </div>
+          </div>          
+          <button
+            type='submit'
+            id='budgetBtn'
+            class='w-full
+              px-6
+              font-medium 
+              bg-red-600 
+              rounded-md 
+              p-2 
+              text-white
+              leading-tight
+              shadow-md
+              hover:bg-red-700 hover:shadow-lg
+              focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
+              active:bg-red-700 active:shadow-lg
+              transition
+              duration-150
+              ease-in-out'>Add To Budget</button>
+        </form>
+      </section>
+    </section>
+
+    {{else}}
+      {{#if expenseOption}}
+      <!--Start of Expense-->
+    <section class="mt-9 m-6 min-h-screen">
+      <a 
+        href="/dashboard"
+        class="bg-red-600 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        aria-current='page'
+      >Back</a>
+      <section
+        class='text-center bg-white rounded-md m-4 p-3'
+      >
+        <h1 class="text-red-600 text-3xl font-bold">Create an Expense</h1>
+        <form class='form' id='expenseForm'>
+          <div class='grid grid-cols-3 gap-4 mt-3'>
+            <div class='form-group mb-6'>
+              <h1 class="font-regular mb-1 text-xl">Name of Expense</h1>
+              <input
+                type='text'
+                id='expenseName'
+                class='form-control name block
+                  w-full
+                  px-3
+                  py-1.5
+                  text-base
+                  font-normal
+                  text-gray-700
+                  bg-white bg-clip-padding
+                  border border-solid border-gray-300
+                  rounded
+                  transition
+                  ease-in-out
+                  m-0
+                  focus:text-gray-700 focus:bg-white focus:border-red-600 focus:outline-none'
+                  placeholder="E.g., Groceries">
+            <!-- Password field -->
+            </div>
+
+            <div class='form-group mb-6'>
+              <h1 class="font-regular text-xl mb-1">Amount</h1>
+              <input
+                type='text'
+                id='expenseAmount'
+                class='form-control amount block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-red-600 focus:outline-none'
+                    placeholder="E.g., 100">
+            </div>
+
+            <div class='form-group mb-6'>
+              <h1 class="font-regular text-xl mb-1">Budget</h1>
+                <select class="block
+                    w-full
+                    px-3
+                    py-2
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-red-600 focus:outline-none" name='budget' id='budgetID'>
+                  {{#each budgetArr as |budget|}}
+                  <option id={{budget.id}}>{{budget.name}}</option>
+                  {{/each}}
+                </select>
+            </div>
+          </div>
+          <button
+            type='submit'
+            id='expenseBtn'
+            class='w-full
+              px-6
+              font-medium 
+              bg-red-600 
+              rounded-md 
+              p-2 
+              text-white
+              leading-tight
+              shadow-md
+              hover:bg-red-700 hover:shadow-lg
+              focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
+              active:bg-red-700 active:shadow-lg
+              transition
+              duration-150
+              ease-in-out'>Add To Expenses</button>
+        </form>
+      </section>
+    </section>
+    {{else}}
+    <!--Start of Income-->
+    <section class="mt-9 m-6 min-h-screen">
+      <a 
+        href="/dashboard"
+        class="bg-red-600 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        aria-current='page'
+      >Back</a>
+      <section
+        class='text-center bg-white rounded-md m-4 p-3'
+      >
+        <h1 class="text-red-600 text-3xl font-bold">Add Income</h1>
+        <form class="form" id='incomeForm'>
+          <div class='grid grid-cols-2 gap-4 mt-3'>
+            <div class="form-group mb-6">
+              <h1 class="font-regular mb-1 text-xl">Source of Income</h1>
+              <input
+                type='text'
+                id='incomeName'
+                class='form-control name block
+                  w-full
+                  px-3
+                  py-1.5
+                  text-base
+                  font-normal
+                  text-gray-700
+                  bg-white bg-clip-padding
+                  border border-solid border-gray-300
+                  rounded
+                  transition
+                  ease-in-out
+                  m-0
+                  focus:text-gray-700 focus:bg-white focus:border-red-600 focus:outline-none'
+                  placeholder="E.g., Building fence for the Smiths">
+            </div>
+            
+            <div class='form-group mb-6'>
+              <h1 class="font-regular text-xl mb-1">Amount</h1>
+              <input
+                type='text'
+                id='incomeAmount'
+                class='form-control amount block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-red-600 focus:outline-none'
+                    placeholder="E.g., 1000">
+            </div>
+            </div>
+            <button
+                id='incomeBtn'
+                type='submit'
+                class='w-full
+              px-6
+              font-medium 
+              bg-red-600 
+              rounded-md 
+              p-2 
+              text-white
+              leading-tight
+              shadow-md
+              hover:bg-red-700 hover:shadow-lg
+              focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
+              active:bg-red-700 active:shadow-lg
+              transition
+              duration-150
+              ease-in-out'>Add To Income</button>
+          </div>
+        </form>
+      </section>
+    </section>
+  </section>
+  {{/if}}
+  {{/if}}
+</section>
+<script src='/js/addData.js'></script>
+<script src="/js/logout.js"></script>
